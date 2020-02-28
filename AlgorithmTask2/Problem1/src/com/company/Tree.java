@@ -2,14 +2,14 @@ package com.company;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Node
+class Node<T>
 {
-    public Node(int item)
+    public Node(T item)
     {
         data = item;
         left = right = null;
     }
-    int data;
+    T data;
     Node left, right;
 
 }
@@ -23,14 +23,14 @@ public class Tree {
 
         if(n.left!=null){
             st += "0";
-            sum += Integer.toString(n.left.data);
+            sum += Integer.toString((Integer) n.left.data);
         }
 
         leftDFS(n.left);
 
         if(n.right!=null){
             st += "1";
-            sum += Integer.toString(n.right.data);
+            sum += Integer.toString((Integer) n.right.data);
         }
 
         leftDFS(n.right);
@@ -43,14 +43,14 @@ public class Tree {
 
         if(n.right!=null){
             st += "0";
-            sum += Integer.toString(n.right.data);
+            sum += Integer.toString((Integer) n.right.data);
         }
 
         leftDFS(n.right);
 
         if(n.left!=null){
             st += "1";
-            sum += Integer.toString(n.left.data);
+            sum += Integer.toString((Integer) n.left.data);
         }
 
         leftDFS(n.left);
