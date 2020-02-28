@@ -18,39 +18,43 @@ public class Tree {
     Node root;
 
     String leftDFS(Node n){
-        String st = "";
-        if(n == null)return st;
+        String st = "",sum = "";
+        if(n == null)return (st+sum);
 
         if(n.left!=null){
             st += "0";
+            sum += Integer.toString(n.left.data);
         }
 
         leftDFS(n.left);
 
         if(n.right!=null){
             st += "1";
+            sum += Integer.toString(n.right.data);
         }
 
         leftDFS(n.right);
-        return st;
+        return (st+sum);
     }
-    
+
     String rightDFS(Node n){
-        String st = "";
-        if(n == null)return st;
+        String st = "", sum="";
+        if(n == null)return (st+sum);
 
         if(n.right!=null){
             st += "0";
+            sum += Integer.toString(n.right.data);
         }
 
         leftDFS(n.right);
 
         if(n.left!=null){
             st += "1";
+            sum += Integer.toString(n.left.data);
         }
 
         leftDFS(n.left);
-        return st;
+        return (st+sum);
     }
 
     boolean myDFS(){
