@@ -68,6 +68,7 @@ public class Graph {
         int ind = 99999;
         for(int i=0; i<distance.size();i++){
             if((distance.get(i)<min)&&(distance.get(i)!=0)&&(clubs.contains(i))){
+                // if 2 countries has the same distance one of them won't enter to this condition
                 min = distance.get(i);
                 ind = i;
             }
