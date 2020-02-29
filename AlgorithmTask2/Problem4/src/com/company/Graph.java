@@ -24,7 +24,7 @@ public class Graph {
        adjListArray[dest].add(src);
     }
 
-    int setEdges( int v, int n, ArrayList<Integer> clubs)
+    int setEdges(int n, ArrayList<Integer> clubs)
     {
 
         int SalahC = 1;
@@ -64,22 +64,15 @@ public class Graph {
             }
         }
 
-        int min = 99999;
-        int ind = 99999;
+        int min = 9999999;
+        int ind = 0;
         for(int i=0; i<distance.size();i++){
             if((distance.get(i)<min)&&(distance.get(i)!=0)&&(clubs.contains(i))){
                 min = distance.get(i);
                 ind = i;
             }
         }
-        /*
-                 int min = 9999999;
-        for(int i=0; i<distance.size();i++){
-            if((distance.get(i)<distance.get(min))&&(distance.get(i)!=0)&&(clubs.contains(i))){
-                min = i;
-            }
-        }
-         */
+
         return ind;
     }
 

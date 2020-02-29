@@ -6,15 +6,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int V = 7;
-        Graph graph = new Graph(V);
-        graph.addEdge( 1, 2);
-        graph.addEdge( 1, 3);
-        graph.addEdge( 1, 4);
-        graph.addEdge(2, 5);
-        graph.addEdge( 2, 6);
-        ArrayList<Integer> c = new ArrayList<>(List.of(5, 6, 3, 4));
-        System.out.println(graph.setEdges(6,7, c));
+        Scanner n = new Scanner(System.in);
+        int V = n.nextInt();
+        Graph graph = new Graph(V+1);
+        int src, dest;
+        for(int i=0;i<V-1;i++){
+            src = n.nextInt();
+            dest = n.nextInt();
+            graph.addEdge( src,dest);
+        }
+        ArrayList<Integer> c = new ArrayList<>(/*List.of(5, 6, 3, 4)*/);
+        int q = n.nextInt();
+        int in = 0;
+        for(int i=0;i<q;i++){
+            in = n.nextInt();
+            c.add(in);
+        }
+
+        System.out.println(graph.setEdges(V+1, c));
 
     }
 }
