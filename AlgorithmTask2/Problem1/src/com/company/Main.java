@@ -12,6 +12,9 @@ public class Main {
         t.root.right.left = new Node<>(4);
         t.root.left.right = new Node<>(4);
         t.root.left.left = new Node<>(3);
+        t.root.right.right.left = new Node<>(3);
+        t.root.left.left.right = new Node<>(3);
+
         System.out.println(t.myDFS());
     }
 }

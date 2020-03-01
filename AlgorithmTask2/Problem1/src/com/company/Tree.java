@@ -18,43 +18,43 @@ public class Tree {
     Node root;
 
     String leftDFS(Node n){
-        String st = "",sum = "";
-        if(n == null)return (st+sum);
+        String sum = "";
+        if(n == null)return (sum);
 
         if(n.left!=null){
-            st += "0";
+            sum += "0";
             sum += Integer.toString((Integer) n.left.data);
         }
 
-        leftDFS(n.left);
+        sum+=leftDFS(n.left);
 
         if(n.right!=null){
-            st += "1";
+            sum += "1";
             sum += Integer.toString((Integer) n.right.data);
         }
 
-        leftDFS(n.right);
-        return (st+sum);
+        sum+=leftDFS(n.right);
+        return (sum);
     }
 
     String rightDFS(Node n){
-        String st = "", sum="";
-        if(n == null)return (st+sum);
+        String sum="";
+        if(n == null)return (sum);
 
         if(n.right!=null){
-            st += "0";
+            sum += "0";
             sum += Integer.toString((Integer) n.right.data);
         }
 
-        leftDFS(n.right);
+        sum+=rightDFS(n.right);
 
         if(n.left!=null){
-            st += "1";
+            sum += "1";
             sum += Integer.toString((Integer) n.left.data);
         }
 
-        leftDFS(n.left);
-        return (st+sum);
+        sum+=rightDFS(n.left);
+        return (sum);
     }
 
     boolean myDFS(){
@@ -66,6 +66,7 @@ public class Tree {
                 //TODO
                String lst = leftDFS(root.left);
                String rst = rightDFS(root.right);
+                System.out.println(lst + " "+ rst);
                if(lst.equals(rst)){
                    return true;
                }
