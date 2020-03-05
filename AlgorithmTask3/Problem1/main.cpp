@@ -4,7 +4,7 @@ using namespace std;
 
 class Point
 {
-    public:
+public:
     int x, y;
 };
 
@@ -29,9 +29,15 @@ float bruteForce(Point P[], int n)
 {
     float min = FLT_MAX;
     for (int i = 0; i < n; ++i)
+    {
         for (int j = i+1; j < n; ++j)
+        {
             if (calcDist(P[i], P[j]) < min)
                 min = calcDist(P[i], P[j]);
+        }
+    }
+
+
     return min;
 }
 
@@ -47,9 +53,15 @@ float middlePoints(Point arr[], int size, float d)
     qsort(arr, size, sizeof(Point), compareByY);
 
     for (int i = 0; i < size; ++i)
+    {
         for (int j = i+1; j < size && (arr[j].y - arr[i].y) < min; ++j)
+        {
             if (calcDist(arr[i],arr[j]) < min)
                 min = calcDist(arr[i], arr[j]);
+        }
+    }
+
+
 
     return min;
 }
@@ -70,8 +82,11 @@ float divideAndConquer(Point P[], int n)
     Point arr[n];
     int j = 0;
     for (int i = 0; i < n; i++)
+    {
         if (abs(P[i].x - midPoint.x) < d)
             arr[j] = P[i], j++;
+    }
+
 
 
     return min(d, middlePoints(arr, j, d) );
@@ -90,18 +105,26 @@ int main()
     int n;
     cin>>n;
     Point points[n];
-    while(true){
-        if(n==0)break;
-        for(int i=0;i<n;i++){
-           cin>>p.x;
-           cin>>p.y;
-           points[i] = p;
+    while(true)
+    {
+        if(n==0)
+            break;
+        for(int i=0; i<n; i++)
+        {
+            cin>>p.x;
+            cin>>p.y;
+            points[i] = p;
         }
         ans.push_back(getMinDistance(points, n));
         cin>>n;
     }
-    for(float x : ans){
-        if(x>10000){cout<<"INFINITY"<<endl;continue;}
+    for(float x : ans)
+    {
+        if(x>10000)
+        {
+            cout<<"INFINITY"<<endl;
+            continue;
+        }
         cout<<fixed<<setprecision(4)<<x<<endl;
     }
 
