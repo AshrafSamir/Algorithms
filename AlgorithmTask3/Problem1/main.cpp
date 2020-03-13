@@ -84,7 +84,11 @@ float divideAndConquer(Point P[], int n)
     for (int i = 0; i < n; i++)
     {
         if (abs(P[i].x - midPoint.x) < d)
-            arr[j] = P[i], j++;
+        {
+            arr[j] = P[i];
+            j++;
+        }
+
     }
 
 
